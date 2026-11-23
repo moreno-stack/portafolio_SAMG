@@ -17,6 +17,13 @@ const QuantumScene = dynamic(() => import("@/components/canvas/QuantumScene"), {
   loading: () => null,
 });
 
+import {
+  AlquilerEquiposLogo,
+  DescubrePastoLogo,
+  MonitorRecuperacionLogo,
+  Nexus7Logo,
+} from "@/components/ProjectLogos";
+
 function GithubMark({ className = "size-4" }: { className?: string }) {
   return (
     <svg
@@ -44,6 +51,71 @@ const marqueeItems = [
   "Pasto, Nariño, Colombia",
   "✦",
 ];
+
+type LaptopProps = {
+  name: string;
+  tag: string;
+  Logo: React.ComponentType<{ className?: string }>;
+  className?: string;
+  tilt: "left" | "right";
+  size: "lg" | "sm";
+};
+
+/** Laptop decorativa: en la pantalla va el logo del proyecto (sin estadísticas). */
+function ProjectLaptop({ name, tag, Logo, className = "", tilt, size }: LaptopProps) {
+  const isLg = size === "lg";
+  return (
+    <div
+      className={`absolute [perspective:1100px] ${className}`}
+      aria-label={`Proyecto ${name}`}
+    >
+      <div
+        className={`transition duration-700 ${
+          tilt === "left"
+            ? "[transform:rotateY(24deg)_rotateX(4deg)]"
+            : "[transform:rotateY(-24deg)_rotateX(4deg)]"
+        }`}
+      >
+        {/* Pantalla */}
+        <div className="relative rounded-t-xl rounded-b-sm border border-white/15 bg-[#140a2b] p-1.5 shadow-[0_0_45px_-8px_rgba(168,85,247,0.75)] sm:p-2">
+          <div
+            className={`relative flex flex-col items-center justify-center overflow-hidden rounded-md bg-[radial-gradient(circle_at_50%_40%,#3b1675_0%,#140a2b_62%,#0b0618_100%)] ${
+              isLg ? "aspect-[16/10]" : "aspect-[16/10.5]"
+            }`}
+          >
+            {/* Barra superior tipo editor */}
+            <div className="absolute inset-x-0 top-0 flex items-center gap-1 px-2 py-1.5">
+              <span className="size-1.5 rounded-full bg-fuchsia-400/70" />
+              <span className="size-1.5 rounded-full bg-violet-400/50" />
+              <span className="size-1.5 rounded-full bg-indigo-400/40" />
+            </div>
+            <div className="absolute inset-0 bg-[linear-gradient(transparent_0,transparent_3px,rgba(255,255,255,0.025)_3px,rgba(255,255,255,0.025)_4px)] bg-[length:100%_4px]" />
+
+            <Logo
+              className={`relative drop-shadow-[0_0_14px_rgba(192,132,252,0.75)] ${
+                isLg ? "size-12 sm:size-16 lg:size-20" : "size-9 sm:size-12 lg:size-14"
+              }`}
+            />
+            <p
+              className={`relative mt-2 text-center font-display uppercase leading-tight tracking-wide text-white ${
+                isLg ? "text-[9px] sm:text-xs lg:text-sm" : "text-[8px] sm:text-[10px] lg:text-xs"
+              }`}
+            >
+              {name}
+            </p>
+            <p className="relative mt-1 hidden font-mono text-[9px] text-violet-200/70 sm:block lg:text-[10px]">
+              {tag}
+            </p>
+          </div>
+        </div>
+        {/* Base / teclado */}
+        <div className="relative mx-auto -mt-px h-2.5 w-[112%] -translate-x-[5.4%] rounded-b-xl border border-white/10 bg-gradient-to-b from-[#6d4bb3] to-[#2a1755] shadow-[0_18px_30px_-10px_rgba(124,58,237,0.8)] sm:h-3.5">
+          <div className="absolute left-1/2 top-0 h-1 w-1/5 -translate-x-1/2 rounded-b-md bg-black/30" />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Hero() {
   return (
