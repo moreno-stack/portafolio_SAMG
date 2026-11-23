@@ -10,6 +10,8 @@ type LaptopProps = {
   tilt: "left" | "right";
   size: "lg" | "sm";
   className?: string;
+  /** "stage": flotando en el escenario (PC/tablet). "grid": en cuadrícula (celular). */
+  layout?: "stage" | "grid";
   onOpen: () => void;
 };
 
@@ -28,13 +30,16 @@ export default function ProjectLaptop({
   tilt,
   size,
   className = "",
+  layout = "stage",
   onOpen,
 }: LaptopProps) {
   const [active, setActive] = useState(false);
   const isLg = size === "lg";
 
-  const rest =
-    tilt === "left"
+  const isGrid = layout === "grid";
+  const rest = isGrid
+    ? "[transform:none]"
+    : tilt === "left"
       ? "[transform:rotateY(24deg)_rotateX(4deg)]"
       : "[transform:rotateY(-24deg)_rotateX(4deg)]";
 
@@ -47,13 +52,17 @@ export default function ProjectLaptop({
       onBlur={() => setActive(false)}
       onClick={onOpen}
       aria-label={`Ver proyecto ${project.name}`}
-      className={`absolute block cursor-pointer text-left outline-none [perspective:1100px] ${
+      className={`${isGrid ? "relative w-full" : "absolute"} block cursor-pointer text-left outline-none [perspective:1100px] ${
         active ? "z-40" : "z-10"
       } ${className}`}
     >
       <div
         className={`transition-transform duration-500 ease-[cubic-bezier(0.2,0.9,0.3,1.1)] ${
-          active ? "[transform:rotateY(0deg)_rotateX(0deg)_translateY(-6px)_scale(1.1)]" : rest
+          active
+            ? isGrid
+              ? "[transform:scale(1.04)]"
+              : "[transform:rotateY(0deg)_rotateX(0deg)_translateY(-6px)_scale(1.1)]"
+            : rest
         }`}
       >
         {/* Pantalla */}
