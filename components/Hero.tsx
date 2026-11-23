@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-import React from "react";
+import React, { useCallback, useState } from "react";
 import {
   ArrowUpRight,
   Download,
@@ -16,6 +16,15 @@ import {
   MonitorRecuperacionLogo,
   Nexus7Logo,
 } from "@/components/ProjectLogos";
+import ProjectLaptop from "@/components/hero/ProjectLaptop";
+import ProjectModal from "@/components/hero/ProjectModal";
+import TechOrbit from "@/components/hero/TechOrbit";
+import { HoloAura, HoloPlatform } from "@/components/hero/HoloPlatform";
+import { heroProjects, type HeroProjectId } from "@/components/hero/heroProjects";
+import NexusDemo from "@/components/hero/demos/NexusDemo";
+import MonitorDemo from "@/components/hero/demos/MonitorDemo";
+import PastoDemo from "@/components/hero/demos/PastoDemo";
+import AlquilerDemo from "@/components/hero/demos/AlquilerDemo";
 
 function GithubMark({ className = "size-4" }: { className?: string }) {
   return (
@@ -45,72 +54,37 @@ const marqueeItems = [
   "✦",
 ];
 
-type LaptopProps = {
-  name: string;
-  tag: string;
-  Logo: React.ComponentType<{ className?: string }>;
-  className?: string;
-  tilt: "left" | "right";
-  size: "lg" | "sm";
+const visuals: Record<
+  HeroProjectId,
+  { Logo: React.ComponentType<{ className?: string }>; Demo: React.ComponentType }
+> = {
+  "descubre-pasto": { Logo: DescubrePastoLogo, Demo: PastoDemo },
+  "alquiler-equipos": { Logo: AlquilerEquiposLogo, Demo: AlquilerDemo },
+  "nexus-7": { Logo: Nexus7Logo, Demo: NexusDemo },
+  "monitor-recuperacion": { Logo: MonitorRecuperacionLogo, Demo: MonitorDemo },
 };
 
-/** Laptop decorativa: en la pantalla va el logo del proyecto (sin estadísticas). */
-function ProjectLaptop({ name, tag, Logo, className = "", tilt, size }: LaptopProps) {
-  const isLg = size === "lg";
-  return (
-    <div
-      className={`absolute [perspective:1100px] ${className}`}
-      aria-label={`Proyecto ${name}`}
-    >
-      <div
-        className={`transition duration-700 ${
-          tilt === "left"
-            ? "[transform:rotateY(24deg)_rotateX(4deg)]"
-            : "[transform:rotateY(-24deg)_rotateX(4deg)]"
-        }`}
-      >
-        {/* Pantalla */}
-        <div className="relative rounded-t-xl rounded-b-sm border border-white/15 bg-[#140a2b] p-1.5 shadow-[0_0_45px_-8px_rgba(168,85,247,0.75)] sm:p-2">
-          <div
-            className={`relative flex flex-col items-center justify-center overflow-hidden rounded-md bg-[radial-gradient(circle_at_50%_40%,#3b1675_0%,#140a2b_62%,#0b0618_100%)] ${
-              isLg ? "aspect-[16/10]" : "aspect-[16/10.5]"
-            }`}
-          >
-            {/* Barra superior tipo editor */}
-            <div className="absolute inset-x-0 top-0 flex items-center gap-1 px-2 py-1.5">
-              <span className="size-1.5 rounded-full bg-fuchsia-400/70" />
-              <span className="size-1.5 rounded-full bg-violet-400/50" />
-              <span className="size-1.5 rounded-full bg-indigo-400/40" />
-            </div>
-            <div className="absolute inset-0 bg-[linear-gradient(transparent_0,transparent_3px,rgba(255,255,255,0.025)_3px,rgba(255,255,255,0.025)_4px)] bg-[length:100%_4px]" />
-
-            <Logo
-              className={`relative drop-shadow-[0_0_14px_rgba(192,132,252,0.75)] ${
-                isLg ? "size-12 sm:size-16 lg:size-20" : "size-9 sm:size-12 lg:size-14"
-              }`}
-            />
-            <p
-              className={`relative mt-2 text-center font-display uppercase leading-tight tracking-wide text-white ${
-                isLg ? "text-[9px] sm:text-xs lg:text-sm" : "text-[8px] sm:text-[10px] lg:text-xs"
-              }`}
-            >
-              {name}
-            </p>
-            <p className="relative mt-1 hidden font-mono text-[9px] text-violet-200/70 sm:block lg:text-[10px]">
-              {tag}
-            </p>
-          </div>
-        </div>
-        {/* Base / teclado */}
-        <div className="relative mx-auto -mt-px h-2.5 w-[112%] -translate-x-[5.4%] rounded-b-xl border border-white/10 bg-gradient-to-b from-[#6d4bb3] to-[#2a1755] shadow-[0_18px_30px_-10px_rgba(124,58,237,0.8)] sm:h-3.5">
-          <div className="absolute left-1/2 top-0 h-1 w-1/5 -translate-x-1/2 rounded-b-md bg-black/30" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Hero() {
+  const [openId, setOpenId] = useState<HeroProjectId | null>(null);
+  const closeModal = useCallback(() => setOpenId(null), []);
+
+  const laptop = (
+    id: HeroProjectId,
+    tilt: "left" | "right",
+    size: "lg" | "sm",
+    className: string
+  ) => (
+    <ProjectLaptop
+      project={heroProjects[id]}
+      Logo={visuals[id].Logo}
+      Demo={visuals[id].Demo}
+      tilt={tilt}
+      size={size}
+      className={className}
+      onOpen={() => setOpenId(id)}
+    />
+  );
+
   return (
     <section
       id="inicio"
@@ -141,46 +115,26 @@ export default function Hero() {
 
         {/* Escenario: monograma + laptops con proyectos + foto */}
         <div className="animate-fade-up relative z-10 mx-auto mt-2 h-[430px] w-full max-w-6xl sm:h-[540px] lg:h-[620px] [animation-delay:.2s]">
-          {/* Monograma S gigante detrás */}
-          <div className="pointer-events-none absolute left-1/2 top-[2%] -translate-x-1/2 select-none font-display text-[300px] leading-none text-transparent sm:text-[420px] lg:text-[520px] [-webkit-text-stroke:0] bg-gradient-to-b from-fuchsia-400/45 via-violet-500/30 to-transparent bg-clip-text">
-            S
-          </div>
+          {/* Aura detrás del retrato */}
+          <HoloAura />
 
           {/* Laptops exteriores (pequeñas) */}
-          <ProjectLaptop
-            name="Nexus-7"
-            tag="Unity · C#"
-            Logo={Nexus7Logo}
-            tilt="left"
-            size="sm"
-            className="left-[0%] top-[30%] hidden w-[19%] md:block"
-          />
-          <ProjectLaptop
-            name="Monitor de Recuperación"
-            tag="Wear OS · Galaxy Watch"
-            Logo={MonitorRecuperacionLogo}
-            tilt="right"
-            size="sm"
-            className="right-[0%] top-[30%] hidden w-[19%] md:block"
-          />
+          {laptop("nexus-7", "left", "sm", "left-[0%] top-[30%] hidden w-[19%] md:block")}
+          {laptop("monitor-recuperacion", "right", "sm", "right-[0%] top-[30%] hidden w-[19%] md:block")}
 
           {/* Laptops interiores (grandes) */}
-          <ProjectLaptop
-            name="Descubre Pasto"
-            tag="Turismo · IA"
-            Logo={DescubrePastoLogo}
-            tilt="left"
-            size="lg"
-            className="left-[-4%] top-[22%] w-[46%] sm:left-[2%] md:left-[13%] md:top-[20%] md:w-[29%]"
-          />
-          <ProjectLaptop
-            name="Alquiler de Equipos"
-            tag="Python · PySide6 · IA"
-            Logo={AlquilerEquiposLogo}
-            tilt="right"
-            size="lg"
-            className="right-[-4%] top-[22%] w-[46%] sm:right-[2%] md:right-[13%] md:top-[20%] md:w-[29%]"
-          />
+          {laptop(
+            "descubre-pasto",
+            "left",
+            "lg",
+            "left-[-4%] top-[22%] w-[46%] sm:left-[2%] md:left-[13%] md:top-[20%] md:w-[29%]"
+          )}
+          {laptop(
+            "alquiler-equipos",
+            "right",
+            "lg",
+            "right-[-4%] top-[22%] w-[46%] sm:right-[2%] md:right-[13%] md:top-[20%] md:w-[29%]"
+          )}
 
           {/* Retrato principal */}
           <img
@@ -190,6 +144,10 @@ export default function Hero() {
             alt="Foto de Samuel Alejandro Moreno Gómez"
             className="absolute bottom-0 left-1/2 z-20 h-full w-auto max-w-none -translate-x-1/2 drop-shadow-[0_0_40px_rgba(168,85,247,0.45)]"
           />
+
+          {/* Órbita de tecnologías y plataforma holográfica */}
+          <TechOrbit />
+          <HoloPlatform />
 
           {/* Desvanecido inferior para fundir el retrato */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-24 bg-gradient-to-t from-[#0d0420] to-transparent" />
@@ -295,6 +253,14 @@ export default function Hero() {
           )}
         </div>
       </div>
+      {openId && (
+        <ProjectModal
+          project={heroProjects[openId]}
+          Logo={visuals[openId].Logo}
+          Demo={visuals[openId].Demo}
+          onClose={closeModal}
+        />
+      )}
     </section>
   );
 }
