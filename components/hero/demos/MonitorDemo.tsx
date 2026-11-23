@@ -55,7 +55,10 @@ export default function MonitorDemo() {
           {score}
         </text>
         <g clipPath="url(#mon-clip)">
-          <g className="animate-beat-scroll">
+          <g
+            className="animate-beat-scroll"
+            style={{ "--beat-shift": "-52px" } as React.CSSProperties}
+          >
             <path
               d={pulse}
               transform="translate(24 46) scale(0.52)"
