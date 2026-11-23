@@ -47,11 +47,12 @@ export default function NexusDemo() {
       s: Math.random() * 1.2 + 0.3,
     }));
 
+    // Se escucha en window porque la pantalla de la laptop no recibe eventos del puntero
     const onMove = (e: PointerEvent) => {
       const rect = canvas.getBoundingClientRect();
       targetX = Math.max(8, Math.min(rect.width - 8, e.clientX - rect.left));
     };
-    canvas.addEventListener("pointermove", onMove);
+    window.addEventListener("pointermove", onMove);
 
     const loop = (now: number) => {
       const dt = Math.min((now - last) / 1000, 0.05);
@@ -135,7 +136,7 @@ export default function NexusDemo() {
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
-      canvas.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointermove", onMove);
     };
   }, []);
 

@@ -17,6 +17,9 @@ type LaptopProps = {
  * Laptop del Hero. En reposo muestra el logo del proyecto; al pasar el mouse
  * (o enfocarla con teclado) gira de frente y arranca la mini demo. Al hacer clic
  * abre la ventana con el detalle del proyecto.
+ *
+ * La pantalla no recibe eventos del puntero: así el clic siempre llega al botón,
+ * aunque el contenido cambie de logo a demo justo al presionar (pasa mucho en táctil).
  */
 export default function ProjectLaptop({
   project,
@@ -63,7 +66,7 @@ export default function ProjectLaptop({
           }}
         >
           <div
-            className={`relative overflow-hidden rounded-md bg-[radial-gradient(circle_at_50%_40%,#3b1675_0%,#140a2b_62%,#0b0618_100%)] ${
+            className={`pointer-events-none relative overflow-hidden rounded-md bg-[radial-gradient(circle_at_50%_40%,#3b1675_0%,#140a2b_62%,#0b0618_100%)] ${
               isLg ? "aspect-[16/10]" : "aspect-[16/10.5]"
             }`}
           >
