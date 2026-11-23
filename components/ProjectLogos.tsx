@@ -68,3 +68,32 @@ export function Nexus7Logo({ className = "size-16" }: LogoProps) {
     </svg>
   );
 }
+
+/** Monitor de Recuperación — esfera de smartwatch con anillo de progreso y pulso. */
+export function MonitorRecuperacionLogo({ className = "size-16" }: LogoProps) {
+  return (
+    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id="lg-mr" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#34D399" />
+          <stop offset="100%" stopColor="#A855F7" />
+        </linearGradient>
+      </defs>
+      <rect x="24" y="2" width="16" height="9" rx="3" fill="url(#lg-mr)" opacity="0.6" />
+      <rect x="24" y="53" width="16" height="9" rx="3" fill="url(#lg-mr)" opacity="0.6" />
+      <circle cx="32" cy="32" r="22" fill="#0B0618" stroke="url(#lg-mr)" strokeWidth="3" />
+      <circle
+        cx="32"
+        cy="32"
+        r="16.5"
+        fill="none"
+        stroke="url(#lg-mr)"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        strokeDasharray="78 104"
+        transform="rotate(-90 32 32)"
+      />
+      <path d="M20 33h6l3-7 5 13 3-6h7" fill="none" stroke="#D1FAE5" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
