@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-pos" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7F5F0" />
+      <stop offset="100%" stop-color="#E9E3D8" />
+    </linearGradient>
+    <pattern id="grid-pos" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#18181B" stroke-width="0.6" stroke-opacity="0.06" />
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg-pos)" />
+  <rect width="800" height="600" fill="url(#grid-pos)" />
+
+  <line x1="48" y1="54" x2="752" y2="54" stroke="#18181B" stroke-opacity="0.14" stroke-width="1.5" />
+  <text x="48" y="42" fill="#8E5B47" font-family="monospace" font-size="12" font-weight="700" letter-spacing="2">ALQUILEREQUIPOS &amp; POS · PYTHON + TEXT-TO-SQL</text>
+  <text x="752" y="42" text-anchor="end" fill="#18181B" font-family="monospace" font-size="12" font-weight="700">[OPERACIONES · 03]</text>
+
+  <g transform="translate(56, 76)">
+    <rect width="688" height="390" rx="22" fill="#FCFBF9" stroke="#18181B" stroke-opacity="0.16" stroke-width="2" />
+
+    <!-- Top KPI Strip -->
+    <g transform="translate(28, 28)">
+      <rect width="200" height="86" rx="16" fill="#18181B" />
+      <text x="18" y="28" fill="#E6C6B8" font-family="monospace" font-size="10.5" font-weight="700">ESTADO DE INVENTARIO</text>
+      <text x="18" y="64" fill="#FCFBF9" font-family="sans-serif" font-size="28" font-weight="900">98.4% OK</text>
+
+      <rect x="216" width="200" height="86" rx="16" fill="#F3EFE8" stroke="#18181B" stroke-opacity="0.12" />
+      <text x="234" y="28" fill="#8E5B47" font-family="monospace" font-size="10.5" font-weight="700">RESERVAS ACTIVAS</text>
+      <text x="234" y="64" fill="#18181B" font-family="sans-serif" font-size="28" font-weight="900">42 Órdenes</text>
+
+      <rect x="432" width="200" height="86" rx="16" fill="#F3EFE8" stroke="#18181B" stroke-opacity="0.12" />
+      <text x="450" y="28" fill="#52525B" font-family="monospace" font-size="10.5" font-weight="700">MOTOR IA SQL</text>
+      <text x="450" y="64" fill="#22C55E" font-family="sans-serif" font-size="24" font-weight="900">Read-Only ✓</text>
+    </g>
+
+    <!-- State Machine Pipeline -->
+    <g transform="translate(28, 136)">
+      <rect width="632" height="108" rx="16" fill="#F5F2EB" stroke="#18181B" stroke-opacity="0.1" />
+      <text x="22" y="28" fill="#18181B" font-family="monospace" font-size="11" font-weight="700">MÁQUINA DE ESTADOS TRAZABLE (INVENTARIO &amp; ENTREGAS)</text>
+
+      <rect x="22" y="46" width="132" height="42" rx="10" fill="#FCFBF9" stroke="#18181B" stroke-opacity="0.2" />
+      <text x="88" y="71" text-anchor="middle" fill="#18181B" font-family="monospace" font-size="11" font-weight="700">DISPONIBLE</text>
+
+      <line x1="154" y1="67" x2="178" y2="67" stroke="#8E5B47" stroke-width="2" />
+
+      <rect x="178" y="46" width="132" height="42" rx="10" fill="#18181B" />
+      <text x="244" y="71" text-anchor="middle" fill="#FCFBF9" font-family="monospace" font-size="11" font-weight="700">RESERVADO</text>
+
+      <line x1="310" y1="67" x2="334" y2="67" stroke="#8E5B47" stroke-width="2" />
+
+      <rect x="334" y="46" width="132" height="42" rx="10" fill="#8E5B47" />
+      <text x="400" y="71" text-anchor="middle" fill="#FCFBF9" font-family="monospace" font-size="11" font-weight="700">EN SERVICIO</text>
+
+      <line x1="466" y1="67" x2="490" y2="67" stroke="#8E5B47" stroke-width="2" />
+
+      <rect x="490" y="46" width="120" height="42" rx="10" fill="#FCFBF9" stroke="#22C55E" stroke-width="2" />
+      <text x="550" y="71" text-anchor="middle" fill="#18181B" font-family="monospace" font-size="11" font-weight="700">LIQUIDADO</text>
+    </g>
+
+    <!-- Text-to-SQL Console -->
+    <g transform="translate(28, 264)">
+      <rect width="632" height="98" rx="16" fill="#18181B" />
+      <text x="22" y="28" fill="#E6C6B8" font-family="monospace" font-size="10.5" font-weight="700">CONSOLA IA EXPLICABLE (GROQ TEXT-TO-SQL):</text>
+      <text x="22" y="54" fill="#FCFBF9" font-family="monospace" font-size="12">&gt; SELECT cliente, equipo, estado_mora FROM reservas WHERE estado = &apos;ACTIVA&apos;;</text>
+      <text x="22" y="78" fill="#22C55E" font-family="monospace" font-size="11">✓ Validación AST de solo lectura completada · 0 bloqueos operativos</text>
+    </g>
+  </g>
+</svg>

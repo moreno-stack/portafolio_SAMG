@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-ce" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7F5F0" />
+      <stop offset="100%" stop-color="#EAE4DC" />
+    </linearGradient>
+    <pattern id="grid-ce" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#18181B" stroke-width="0.6" stroke-opacity="0.06" />
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg-ce)" />
+  <rect width="800" height="600" fill="url(#grid-ce)" />
+
+  <line x1="48" y1="54" x2="752" y2="54" stroke="#18181B" stroke-opacity="0.14" stroke-width="1.5" />
+  <text x="48" y="42" fill="#8E5B47" font-family="monospace" font-size="12" font-weight="700" letter-spacing="2">CONTROL DE EMERGENCIAS · NODE.JS ZERO-DEPS API</text>
+  <text x="752" y="42" text-anchor="end" fill="#18181B" font-family="monospace" font-size="12" font-weight="700">[API + MÓVIL · 05]</text>
+
+  <g transform="translate(56, 76)">
+    <rect width="688" height="390" rx="22" fill="#FCFBF9" stroke="#18181B" stroke-opacity="0.16" stroke-width="2" />
+
+    <!-- Left Mobile App Mockup -->
+    <g transform="translate(36, 28)">
+      <rect width="210" height="334" rx="26" fill="#18181B" />
+      <rect x="12" y="14" width="186" height="306" rx="18" fill="#FCFBF9" />
+      <rect x="68" y="24" width="74" height="6" rx="3" fill="#18181B" fill-opacity="0.2" />
+
+      <rect x="24" y="44" width="162" height="26" rx="13" fill="#F3EFE8" />
+      <circle cx="38" cy="57" r="4" fill="#22C55E" />
+      <text x="48" y="61" fill="#18181B" font-family="monospace" font-size="9.5" font-weight="700">BOGOTÁ / PASTO TZ</text>
+
+      <rect x="24" y="82" width="162" height="64" rx="12" fill="#18181B" />
+      <text x="36" y="104" fill="#E6C6B8" font-family="monospace" font-size="9.5" font-weight="700">PRIORIDAD ALTA</text>
+      <text x="36" y="126" fill="#FCFBF9" font-family="sans-serif" font-size="13" font-weight="800">Reporte Operativo #01</text>
+
+      <rect x="24" y="158" width="162" height="64" rx="12" fill="#F3EFE8" stroke="#18181B" stroke-opacity="0.12" />
+      <text x="36" y="180" fill="#8E5B47" font-family="monospace" font-size="9.5" font-weight="700">TRAZABILIDAD</text>
+      <text x="36" y="202" fill="#18181B" font-family="sans-serif" font-size="13" font-weight="800">Despacho Confirmado</text>
+
+      <rect x="24" y="264" width="162" height="40" rx="20" fill="#8E5B47" />
+      <text x="105" y="288" text-anchor="middle" fill="#FCFBF9" font-family="sans-serif" font-size="11" font-weight="700">Registrar Evento ↗</text>
+    </g>
+
+    <!-- Right REST API Telemetry -->
+    <g transform="translate(274, 28)">
+      <rect width="382" height="156" rx="18" fill="#F3EFE8" stroke="#18181B" stroke-opacity="0.12" />
+      <text x="24" y="34" fill="#8E5B47" font-family="monospace" font-size="11" font-weight="700">ARQUITECTURA BACKEND NODE.JS NATIVO</text>
+      <text x="24" y="64" fill="#18181B" font-family="sans-serif" font-size="22" font-weight="900">0 Dependencias Externas</text>
+      <text x="24" y="92" fill="#52525B" font-family="sans-serif" font-size="12.5">Arranque instantáneo, validación estricta de payloads</text>
+      <text x="24" y="112" fill="#52525B" font-family="sans-serif" font-size="12.5">y persistencia JSON con sello horario America/Bogota.</text>
+
+      <rect y="178" width="382" height="156" rx="18" fill="#18181B" />
+      <text x="24" y="210" fill="#22C55E" font-family="monospace" font-size="11" font-weight="700">POST /api/emergencias · HTTP 201 CREATED</text>
+      <text x="24" y="242" fill="#FCFBF9" font-family="monospace" font-size="11.5">{`{ "status": "ok", "tz": "America/Bogota",`}</text>
+      <text x="24" y="266" fill="#E6C6B8" font-family="monospace" font-size="11.5">{`  "priority": "CRITICA", "persisted": true }`}</text>
+      <text x="24" y="304" fill="#A1A1AA" font-family="monospace" font-size="10.5">Interfaz desplegada en app-movile.vercel.app</text>
+    </g>
+  </g>
+</svg>

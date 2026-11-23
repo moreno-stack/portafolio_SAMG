@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-dp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7F5F0" />
+      <stop offset="100%" stop-color="#EAE5DC" />
+    </linearGradient>
+    <pattern id="grid-dp" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#18181B" stroke-width="0.6" stroke-opacity="0.06" />
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg-dp)" />
+  <rect width="800" height="600" fill="url(#grid-dp)" />
+
+  <!-- Editorial Top Rule -->
+  <line x1="48" y1="54" x2="752" y2="54" stroke="#18181B" stroke-opacity="0.14" stroke-width="1.5" />
+  <text x="48" y="42" fill="#8E5B47" font-family="monospace" font-size="12" font-weight="700" letter-spacing="2">DESCUBRE-PASTO.VERCEL.APP · GROQ LLAMA 3.3 70B</text>
+  <text x="752" y="42" text-anchor="end" fill="#18181B" font-family="monospace" font-size="12" font-weight="700">[IA TURÍSTICA · 01]</text>
+
+  <!-- Main Editorial Browser Window -->
+  <g transform="translate(56, 76)">
+    <rect width="688" height="390" rx="22" fill="#FCFBF9" stroke="#18181B" stroke-opacity="0.16" stroke-width="2" />
+    <rect width="688" height="44" rx="22" fill="#F1EDE6" />
+    <line x1="0" y1="44" x2="688" y2="44" stroke="#18181B" stroke-opacity="0.12" stroke-width="1.5" />
+    <circle cx="24" cy="22" r="5.5" fill="#18181B" />
+    <circle cx="42" cy="22" r="5.5" fill="#8E5B47" />
+    <circle cx="60" cy="22" r="5.5" fill="#22C55E" />
+    <rect x="190" y="11" width="310" height="22" rx="11" fill="#FCFBF9" stroke="#18181B" stroke-opacity="0.12" />
+    <text x="345" y="26" text-anchor="middle" fill="#52525B" font-family="monospace" font-size="11" font-weight="600">https://descubre-pasto.vercel.app</text>
+
+    <!-- Left Column: AI Prompt & Route Generator -->
+    <g transform="translate(28, 66)">
+      <rect width="305" height="292" rx="16" fill="#F5F2EB" stroke="#18181B" stroke-opacity="0.1" />
+      <rect x="18" y="18" width="128" height="24" rx="12" fill="#18181B" />
+      <circle cx="32" cy="30" r="4" fill="#22C55E" />
+      <text x="44" y="34" fill="#FCFBF9" font-family="sans-serif" font-size="10" font-weight="700" letter-spacing="1">ASISTENTE IA</text>
+
+      <text x="18" y="70" fill="#18181B" font-family="sans-serif" font-size="18" font-weight="800">Rutas en San Juan de Pasto</text>
+      <text x="18" y="92" fill="#52525B" font-family="sans-serif" font-size="11.5">Consulta en lenguaje natural y genera un</text>
+      <text x="18" y="108" fill="#52525B" font-family="sans-serif" font-size="11.5">itinerario cultural y gastronómico al instante.</text>
+
+      <!-- Prompt Bubble -->
+      <rect x="18" y="126" width="269" height="58" rx="12" fill="#FCFBF9" stroke="#8E5B47" stroke-opacity="0.45" stroke-width="1.5" />
+      <text x="30" y="146" fill="#8E5B47" font-family="monospace" font-size="10" font-weight="700">PROMPT DEL VISITANTE:</text>
+      <text x="30" y="166" fill="#18181B" font-family="sans-serif" font-size="11.5" font-weight="600">"Tengo 4 horas en Pasto, quiero café y museos"</text>
+
+      <!-- Generated Stops -->
+      <g transform="translate(18, 200)">
+        <rect width="269" height="36" rx="10" fill="#18181B" />
+        <text x="14" y="23" fill="#FCFBF9" font-family="monospace" font-size="11" font-weight="700">01 · Museo del Carnaval</text>
+        <text x="255" y="23" text-anchor="end" fill="#E6C6B8" font-family="monospace" font-size="10">45 min</text>
+      </g>
+      <g transform="translate(18, 244)">
+        <rect width="269" height="36" rx="10" fill="#FCFBF9" stroke="#18181B" stroke-opacity="0.16" />
+        <text x="14" y="23" fill="#18181B" font-family="monospace" font-size="11" font-weight="700">02 · Centro Histórico &amp; Café Nariño</text>
+        <text x="255" y="23" text-anchor="end" fill="#8E5B47" font-family="monospace" font-size="10" font-weight="700">60 min</text>
+      </g>
+    </g>
+
+    <!-- Right Column: Interactive Route Map Card -->
+    <g transform="translate(352, 66)">
+      <rect width="308" height="292" rx="16" fill="#18181B" />
+      <!-- Topographic Subtle Rings -->
+      <circle cx="154" cy="146" r="105" fill="none" stroke="#FCFBF9" stroke-opacity="0.1" stroke-dasharray="4 6" />
+      <circle cx="154" cy="146" r="68" fill="none" stroke="#8E5B47" stroke-opacity="0.4" stroke-width="1.5" />
+
+      <!-- Route Path -->
+      <path d="M 62 212 C 110 185, 132 122, 168 114 C 204 106, 224 156, 252 84" fill="none" stroke="#E6C6B8" stroke-width="4" stroke-linecap="round" />
+
+      <!-- Nodes -->
+      <circle cx="62" cy="212" r="9" fill="#22C55E" stroke="#18181B" stroke-width="3" />
+      <circle cx="168" cy="114" r="9" fill="#E6C6B8" stroke="#18181B" stroke-width="3" />
+      <circle cx="252" cy="84" r="10" fill="#8E5B47" stroke="#FCFBF9" stroke-width="2.5" />
+
+      <!-- Labels on Map -->
+      <rect x="24" y="22" width="142" height="28" rx="14" fill="#27272A" />
+      <text x="95" y="40" text-anchor="middle" fill="#FCFBF9" font-family="monospace" font-size="10.5" font-weight="700">PASTO · NARIÑO</text>
+
+      <rect x="24" y="236" width="260" height="38" rx="10" fill="#27272A" />
+      <text x="38" y="260" fill="#FCFBF9" font-family="monospace" font-size="11" font-weight="600">Llama-3.3-70B · Latencia &lt; 420ms</text>
+    </g>
+  </g>
+</svg>
