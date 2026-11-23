@@ -1,8 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-import React, { Suspense } from "react";
-import dynamic from "next/dynamic";
+import React from "react";
 import {
   ArrowUpRight,
   Download,
@@ -11,12 +10,6 @@ import {
   Mail,
   MessageCircle,
 } from "lucide-react";
-
-const QuantumScene = dynamic(() => import("@/components/canvas/QuantumScene"), {
-  ssr: false,
-  loading: () => null,
-});
-
 import {
   AlquilerEquiposLogo,
   DescubrePastoLogo,
@@ -119,33 +112,93 @@ function ProjectLaptop({ name, tag, Logo, className = "", tilt, size }: LaptopPr
 
 export default function Hero() {
   return (
-    <section id="inicio" className="relative flex flex-col overflow-hidden">
-      <div className="relative mx-auto flex w-full max-w-7xl flex-col justify-between px-4 pt-4 pb-10 sm:px-6 sm:pt-6 sm:pb-14">
-        {/* Subtítulo superior de identidad completa */}
-        <div className="relative z-10 text-center">
-          <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--muted-foreground)] sm:text-xs sm:tracking-[0.26em]">
+    <section
+      id="inicio"
+      className="relative flex flex-col overflow-hidden bg-[#0d0420] text-white"
+    >
+      {/* Fondo morado con resplandor y retícula sutil */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,#5b21b6_0%,#2e1065_38%,#0d0420_75%)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
+
+      <div className="relative mx-auto flex w-full max-w-7xl flex-col px-4 pt-4 pb-10 sm:px-6 sm:pt-6 sm:pb-14">
+        {/* Identidad + título */}
+        <div className="relative z-30 text-center">
+          <p className="animate-fade-up text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-200/70 sm:text-xs sm:tracking-[0.26em]">
             Samuel Alejandro Moreno Gómez · Universidad Cooperativa de Colombia
             (Sede Pasto)
           </p>
-
-          {/* Título monumental Archivo Black en una sola fila en Tablet/PC y apilado limpio en Smartphone */}
           <h1 className="mt-2.5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 font-display text-[13.5vw] leading-[0.92] tracking-tight uppercase sm:mt-3 sm:flex-nowrap sm:gap-x-5 sm:whitespace-nowrap sm:text-[clamp(2.55rem,7.2vw,6.8rem)]">
             <span className="overflow-hidden py-0.5">
-              <span className="animate-rise block text-outline">SAMUEL</span>
+              <span className="animate-rise block text-outline-light">SAMUEL</span>
             </span>
             <span className="overflow-hidden py-0.5">
-              <span className="animate-rise block [animation-delay:.12s]">
+              <span className="animate-rise block bg-gradient-to-r from-violet-200 via-fuchsia-300 to-violet-400 bg-clip-text text-transparent [animation-delay:.12s]">
                 MORENO
               </span>
             </span>
           </h1>
         </div>
 
-        {/* Escenario principal adaptable: 1 col (Móvil), 2 bloques simétricos (Tablet) y 12 cols (PC) */}
-        <div className="relative z-10 mt-5 grid grid-cols-1 items-end gap-8 md:grid-cols-12 lg:mt-4 lg:gap-6">
-          {/* Columna izquierda: Rol realista de estudiante de 5.° semestre + botones obligatorios */}
-          <div className="animate-fade-up order-2 md:col-span-7 lg:order-1 lg:col-span-4 lg:pb-4 [animation-delay:.3s]">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--muted)] px-3.5 py-1.5 text-xs font-semibold text-[var(--clay)]">
+        {/* Escenario: monograma + laptops con proyectos + foto */}
+        <div className="animate-fade-up relative z-10 mx-auto mt-2 h-[430px] w-full max-w-6xl sm:h-[540px] lg:h-[620px] [animation-delay:.2s]">
+          {/* Monograma S gigante detrás */}
+          <div className="pointer-events-none absolute left-1/2 top-[2%] -translate-x-1/2 select-none font-display text-[300px] leading-none text-transparent sm:text-[420px] lg:text-[520px] [-webkit-text-stroke:0] bg-gradient-to-b from-fuchsia-400/45 via-violet-500/30 to-transparent bg-clip-text">
+            S
+          </div>
+
+          {/* Laptops exteriores (pequeñas) */}
+          <ProjectLaptop
+            name="Nexus-7"
+            tag="Unity · C#"
+            Logo={Nexus7Logo}
+            tilt="left"
+            size="sm"
+            className="left-[0%] top-[30%] hidden w-[19%] md:block"
+          />
+          <ProjectLaptop
+            name="Monitor de Recuperación"
+            tag="Wear OS · Galaxy Watch"
+            Logo={MonitorRecuperacionLogo}
+            tilt="right"
+            size="sm"
+            className="right-[0%] top-[30%] hidden w-[19%] md:block"
+          />
+
+          {/* Laptops interiores (grandes) */}
+          <ProjectLaptop
+            name="Descubre Pasto"
+            tag="Turismo · IA"
+            Logo={DescubrePastoLogo}
+            tilt="left"
+            size="lg"
+            className="left-[-4%] top-[22%] w-[46%] sm:left-[2%] md:left-[13%] md:top-[20%] md:w-[29%]"
+          />
+          <ProjectLaptop
+            name="Alquiler de Equipos"
+            tag="Python · PySide6 · IA"
+            Logo={AlquilerEquiposLogo}
+            tilt="right"
+            size="lg"
+            className="right-[-4%] top-[22%] w-[46%] sm:right-[2%] md:right-[13%] md:top-[20%] md:w-[29%]"
+          />
+
+          {/* Retrato principal */}
+          <img
+            src="/samuel-hero.png"
+            width={471}
+            height={810}
+            alt="Foto de Samuel Alejandro Moreno Gómez"
+            className="absolute bottom-0 left-1/2 z-20 h-full w-auto max-w-none -translate-x-1/2 drop-shadow-[0_0_40px_rgba(168,85,247,0.45)]"
+          />
+
+          {/* Desvanecido inferior para fundir el retrato */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-24 bg-gradient-to-t from-[#0d0420] to-transparent" />
+        </div>
+
+        {/* Texto y enlaces debajo del escenario */}
+        <div className="relative z-30 mt-6 grid grid-cols-1 items-end gap-8 md:grid-cols-12">
+          <div className="animate-fade-up md:col-span-7 [animation-delay:.3s]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-semibold text-violet-200 backdrop-blur">
               <GraduationCap className="size-3.5 shrink-0" />
               <span>5.° Semestre Ing. Software · UCC Pasto</span>
             </div>
@@ -154,7 +207,7 @@ export default function Hero() {
               Estudiante de Ingeniería de Software &amp; Desarrollador Web
             </h2>
 
-            <p className="mt-3 max-w-md text-sm leading-relaxed text-[var(--muted-foreground)] sm:text-base">
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-violet-100/70 sm:text-base">
               Estudiante de quinto semestre enfocado en el diseño de interfaces
               claras, desarrollo web moderno y construcción de software
               práctico, combinando mi formación académica con experiencia real
@@ -165,7 +218,7 @@ export default function Hero() {
               <a
                 href="/cv.pdf"
                 download
-                className="group inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[var(--primary)] px-5 py-3.5 text-sm font-semibold text-[var(--primary-foreground)] shadow-lg transition hover:-translate-y-0.5 sm:flex-initial"
+                className="group inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-500 px-5 py-3.5 text-sm font-semibold text-white shadow-[0_10px_30px_-8px_rgba(192,38,211,0.7)] transition hover:-translate-y-0.5 sm:flex-initial"
               >
                 <Download className="size-4 shrink-0" />
                 <span>Descargar CV</span>
@@ -174,111 +227,67 @@ export default function Hero() {
 
               <a
                 href="#proyectos"
-                className="inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-[var(--border)] bg-[var(--background)] px-5 py-3.5 text-sm font-semibold transition hover:border-[var(--foreground)] hover:bg-[var(--muted)] sm:flex-initial"
+                className="inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/20 bg-white/5 px-5 py-3.5 text-sm font-semibold backdrop-blur transition hover:border-white/50 hover:bg-white/10 sm:flex-initial"
               >
                 <span>Ver proyectos</span>
               </a>
             </div>
           </div>
 
-          {/* Columna central protagónica: Retrato oficial /yo.png ampliado + Halo 3D WebGL */}
-          <div className="animate-fade-up order-1 flex justify-center md:col-span-12 lg:order-2 lg:col-span-5 lg:-mt-4 [animation-delay:.2s]">
-            <div className="relative w-full max-w-[390px] sm:max-w-[440px] lg:max-w-[465px] xl:max-w-[500px]">
-              {/* Halo WebGL interactivo enmarcando el retrato */}
-              <div className="pointer-events-auto absolute -inset-x-8 -top-10 -bottom-6 z-0 opacity-60 sm:-inset-x-12">
-                <Suspense fallback={null}>
-                  <QuantumScene variant="hero" accentColor="#8E5B47" />
-                </Suspense>
-              </div>
-
-              {/* Insignia flotante superior izquierda */}
-              <div className="absolute -left-2 top-8 z-20 hidden items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--background)]/95 px-3.5 py-1.5 text-xs font-bold shadow-md backdrop-blur-md sm:inline-flex">
-                <span className="size-2 rounded-full bg-[var(--live)]" />
-                <span>5.° Semestre · UCC</span>
-              </div>
-
-              {/* Insignia flotante inferior derecha */}
-              <div className="absolute -right-2 bottom-14 z-20 hidden items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--primary)] px-3.5 py-1.5 font-mono text-xs font-semibold text-[var(--primary-foreground)] shadow-lg sm:inline-flex">
-                <span>Pasto, Colombia</span>
-              </div>
-
-              {/* Marco arquitectónico en arco ampliado */}
-              <div className="relative z-10 overflow-hidden rounded-t-[230px] rounded-b-[2rem] border-2 border-[var(--border)] bg-gradient-to-b from-[#ECE8E0] via-[var(--muted)] to-[#E4DFD5] p-3 shadow-[0_28px_65px_-20px_rgba(24,24,27,0.22)] sm:p-4">
-                <div className="overflow-hidden rounded-t-[214px] rounded-b-[1.5rem] border border-[var(--border)]/80 bg-[#DDD8CE]">
-                  <img
-                    src="/yo.png"
-                    width={480}
-                    height={590}
-                    alt="Foto de Samuel Alejandro Moreno Gómez"
-                    className="aspect-[4/4.65] w-full object-cover object-[center_12%] transition duration-700 hover:scale-[1.03]"
-                  />
-                </div>
-              </div>
-
-              {/* Pie técnico de fotografía */}
-              <div className="relative z-10 mt-3 flex items-center justify-between px-3 text-xs font-semibold text-[var(--muted-foreground)]">
-                <span>📍 Pasto, Nariño, Colombia</span>
-                <span className="font-mono text-[var(--clay)]">
-                  [ING. DE SOFTWARE]
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Columna derecha: Píldoras de canales directos estilo Lively Workbook */}
-          <div className="animate-fade-up order-3 flex flex-wrap items-center gap-2.5 md:col-span-5 md:justify-end lg:col-span-3 lg:flex-col lg:items-end lg:pb-4 [animation-delay:.42s]">
-            <p className="mb-1 hidden font-mono text-[11px] font-bold uppercase tracking-wider text-[var(--muted-foreground)] lg:block">
+          <div className="animate-fade-up flex flex-wrap items-center gap-2.5 md:col-span-5 md:flex-col md:items-end [animation-delay:.42s]">
+            <p className="mb-1 hidden font-mono text-[11px] font-bold uppercase tracking-wider text-violet-200/60 md:block">
               Enlaces Directos
             </p>
-
-            <a
-              href="https://github.com/moreno-stack"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="editorial-pill inline-flex items-center gap-2 whitespace-nowrap px-4 py-2.5 text-xs font-semibold shadow-2xs sm:text-sm"
-            >
-              <GithubMark className="size-4 shrink-0" />
-              <span>GitHub · moreno-stack</span>
-            </a>
-
-            <a
-              href="https://wa.me/573172707258"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="editorial-pill inline-flex items-center gap-2 whitespace-nowrap px-4 py-2.5 text-xs font-semibold shadow-2xs sm:text-sm"
-            >
-              <MessageCircle className="size-4 shrink-0 text-[var(--live)]" />
-              <span>WhatsApp · (317) 270-7258</span>
-            </a>
-
-            <a
-              href="mailto:moreno200718@gmail.com"
-              className="editorial-pill inline-flex items-center gap-2 whitespace-nowrap px-4 py-2.5 text-xs font-semibold shadow-2xs sm:text-sm"
-            >
-              <Mail className="size-4 shrink-0 text-[var(--clay)]" />
-              <span>moreno200718@gmail.com</span>
-            </a>
-
-            <a
-              href="/cv.pdf"
-              download
-              className="editorial-pill inline-flex items-center gap-2 whitespace-nowrap px-4 py-2.5 text-xs font-semibold shadow-2xs sm:text-sm"
-            >
-              <FileText className="size-4 shrink-0" />
-              <span>Hoja de Vida Oficial [PDF]</span>
-            </a>
+            {[
+              {
+                href: "https://github.com/moreno-stack",
+                label: "GitHub · moreno-stack",
+                icon: <GithubMark className="size-4 shrink-0" />,
+                external: true,
+              },
+              {
+                href: "https://wa.me/573172707258",
+                label: "WhatsApp · (317) 270-7258",
+                icon: <MessageCircle className="size-4 shrink-0 text-emerald-400" />,
+                external: true,
+              },
+              {
+                href: "mailto:moreno200718@gmail.com",
+                label: "moreno200718@gmail.com",
+                icon: <Mail className="size-4 shrink-0 text-fuchsia-300" />,
+              },
+              {
+                href: "/cv.pdf",
+                label: "Hoja de Vida Oficial [PDF]",
+                icon: <FileText className="size-4 shrink-0" />,
+                download: true,
+              },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                {...(link.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                {...(link.download ? { download: true } : {})}
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-xs font-semibold backdrop-blur transition hover:border-violet-300/60 hover:bg-white/10 sm:text-sm"
+              >
+                {link.icon}
+                <span>{link.label}</span>
+              </a>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Cinta Marquee infinita característica de Dymas Alfin / Lively Workbook */}
-      <div className="overflow-hidden border-y border-[var(--border)] bg-[var(--primary)] py-4 text-[var(--primary-foreground)] sm:py-5">
+      {/* Cinta marquee */}
+      <div className="relative overflow-hidden border-y border-white/10 bg-gradient-to-r from-violet-700 via-fuchsia-600 to-violet-700 py-4 text-white sm:py-5">
         <div className="animate-marquee flex w-max gap-10 font-display text-xl uppercase sm:gap-12 sm:text-2xl md:text-3xl">
           {Array.from({ length: 2 }).flatMap((_, loopIdx) =>
             marqueeItems.map((item, idx) => (
               <span
                 key={`${loopIdx}-${idx}`}
-                className={item === "✦" ? "text-[var(--clay)]" : ""}
+                className={item === "✦" ? "text-violet-200" : ""}
               >
                 {item}
               </span>
