@@ -12,7 +12,7 @@ export function HoloAura() {
 
 /**
  * Plataforma holográfica a los pies del retrato: anillos que giran en
- * perspectiva y un haz de luz que sube, como si la foto fuera un holograma.
+ * perspectiva, como si la foto fuera un holograma.
  */
 export function HoloPlatform() {
   return (

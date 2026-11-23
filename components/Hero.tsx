@@ -149,8 +149,6 @@ export default function Hero() {
           <TechOrbit />
           <HoloPlatform />
 
-          {/* Desvanecido inferior para fundir el retrato */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-24 bg-gradient-to-t from-[#0d0420] to-transparent" />
         </div>
 
         {/* Texto y enlaces debajo del escenario */}
