@@ -76,7 +76,7 @@ export default function ProjectModal({ project, Logo, Demo, onClose }: ModalProp
             </div>
             <p className="mt-2 text-center font-mono text-[11px] text-violet-200/60">
               {project.id === "nexus-7"
-                ? "Mueve el mouse sobre la pantalla para esquivar los asteroides"
+                ? "Mueve el mouse o desliza el dedo para esquivar los asteroides"
                 : "Vista previa interactiva"}
             </p>
           </div>
