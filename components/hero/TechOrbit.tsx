@@ -16,7 +16,7 @@ const techs = [
 
 /**
  * Anillo de tecnologías que gira alrededor del retrato. Cada chip pasa por
- * delante (z-25, sobre la foto) o por detrás (z-15) según su ángulo, lo que
+ * delante (z-25, sobre la foto) o por detrás (z-5, detrás de foto y laptops) según su ángulo, lo que
  * da la sensación de una órbita real en 3D.
  */
 export default function TechOrbit() {
@@ -44,7 +44,7 @@ export default function TechOrbit() {
         const depth = (Math.sin(a) + 1) / 2; // 0 = atrás, 1 = adelante
         el.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) scale(${0.72 + depth * 0.38})`;
         el.style.opacity = String(0.35 + depth * 0.65);
-        el.style.zIndex = depth > 0.5 ? "25" : "15";
+        el.style.zIndex = depth > 0.5 ? "25" : "5";
         el.style.filter = depth > 0.5 ? "none" : "blur(0.6px)";
       });
     };
@@ -70,7 +70,7 @@ export default function TechOrbit() {
     <div
       ref={wrapRef}
       aria-hidden="true"
-      className="pointer-events-none absolute inset-x-0 top-[44%] mx-auto h-[18%] w-[min(560px,78%)]"
+      className="pointer-events-none absolute inset-x-0 top-[46%] mx-auto h-[16%] w-[min(500px,72%)]"
     >
       {/* Sin transform en el contenedor: así cada chip puede quedar delante o detrás de la foto */}
       {/* Trazo de la órbita */}
