@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { ArrowUpRight, Check, X } from "lucide-react";
 import type { HeroProject } from "@/components/hero/heroProjects";
 
@@ -29,7 +30,7 @@ export default function ProjectModal({ project, Logo, Demo, onClose }: ModalProp
     };
   }, [onClose]);
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center bg-[#05010d]/75 p-3 backdrop-blur-md sm:p-6"
       onClick={onClose}
@@ -141,6 +142,7 @@ export default function ProjectModal({ project, Logo, Demo, onClose }: ModalProp
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
