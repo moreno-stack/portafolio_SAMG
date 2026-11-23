@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useId } from "react";
 
 const pins = [
   { x: 22, y: 34, label: "Volcán Galeras", color: "#F472B6" },
@@ -11,17 +11,18 @@ const pins = [
 
 /** Mapa nocturno: los pines aparecen uno a uno y la ruta sugerida por la IA fluye entre ellos. */
 export default function PastoDemo() {
+  const gridId = `${useId()}-grid`;
   const route = pins.map((p, i) => `${i === 0 ? "M" : "L"}${p.x} ${p.y}`).join(" ");
 
   return (
     <div className="absolute inset-0 overflow-hidden bg-[#06101c]">
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full" aria-hidden="true">
         <defs>
-          <pattern id="dp-grid" width="10" height="10" patternUnits="userSpaceOnUse">
+          <pattern id={gridId} width="10" height="10" patternUnits="userSpaceOnUse">
             <path d="M10 0H0V10" fill="none" stroke="#22d3ee" strokeOpacity="0.08" strokeWidth="0.5" />
           </pattern>
         </defs>
-        <rect width="100" height="100" fill="url(#dp-grid)" />
+        <rect width="100" height="100" fill={`url(#${gridId})`} />
         {/* Río y montañas estilizadas */}
         <path d="M0 64 C20 58 30 72 48 66 S78 52 100 60" fill="none" stroke="#0e7490" strokeOpacity="0.5" strokeWidth="2.4" />
         <path d="M8 46 18 26 28 46Z" fill="#a855f7" fillOpacity="0.22" />

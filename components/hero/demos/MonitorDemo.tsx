@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 
 const TARGET = 82;
 const R = 34;
@@ -9,6 +9,9 @@ const CIRC = 2 * Math.PI * R;
 /** Esfera de smartwatch: la puntuación de recuperación sube hasta 82 y el pulso se mueve. */
 export default function MonitorDemo() {
   const [score, setScore] = useState(0);
+  const uid = useId();
+  const ringId = `${uid}-ring`;
+  const clipId = `${uid}-clip`;
 
   useEffect(() => {
     let value = 0;
@@ -26,11 +29,11 @@ export default function MonitorDemo() {
     <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(circle_at_50%_45%,#064e3b_0%,#0b0618_68%)]">
       <svg viewBox="0 0 100 100" className="h-[86%] w-auto" aria-hidden="true">
         <defs>
-          <linearGradient id="mon-ring" x1="0" y1="0" x2="1" y2="1">
+          <linearGradient id={ringId} x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="#34D399" />
             <stop offset="100%" stopColor="#A855F7" />
           </linearGradient>
-          <clipPath id="mon-clip">
+          <clipPath id={clipId}>
             <rect x="24" y="56" width="52" height="16" />
           </clipPath>
         </defs>
@@ -41,7 +44,7 @@ export default function MonitorDemo() {
           cy="50"
           r={R}
           fill="none"
-          stroke="url(#mon-ring)"
+          stroke={`url(#${ringId})`}
           strokeWidth="6"
           strokeLinecap="round"
           strokeDasharray={CIRC}
@@ -54,7 +57,7 @@ export default function MonitorDemo() {
         <text x="50" y="52" textAnchor="middle" fontSize="17" fontWeight="800" fill="#ecfdf5">
           {score}
         </text>
-        <g clipPath="url(#mon-clip)">
+        <g clipPath={`url(#${clipId})`}>
           <g
             className="animate-beat-scroll"
             style={{ "--beat-shift": "-52px" } as React.CSSProperties}
