@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(99.3% 0 0);
+  --foreground: oklch(16% 0.004 20);
+  --primary: oklch(16% 0.004 20);
+  --primary-foreground: oklch(99% 0 0);
+  --muted: oklch(96.5% 0.003 40);
+  --muted-foreground: oklch(50% 0.005 40);
+  --border: oklch(90% 0.006 40);
+  --live: oklch(72% 0.19 145);
+  --clay: oklch(55% 0.08 35);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-live: var(--live);
+  --color-clay: var(--clay);
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo-black), var(--font-manrope), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--background);
+  background-image: radial-gradient(
+    oklch(16% 0.004 20 / 0.045) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+  color: var(--foreground);
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.font-display,
+.font-heading {
+  font-family: var(--font-archivo-black), var(--font-manrope), sans-serif;
+  letter-spacing: 0.015em;
+}
+
+/* Tipografía en contorno estilo Dymas Alfin / Lively Workbook adaptable por dispositivo */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 2.4px var(--foreground);
+}
+
+.text-outline-light {
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(252, 252, 252, 0.78);
+}
+
+@media (max-width: 1024px) {
+  .text-outline {
+    -webkit-text-stroke: 2px var(--foreground);
+  }
+}
+
+@media (max-width: 640px) {
+  .text-outline {
+    -webkit-text-stroke: 1.5px var(--foreground);
+  }
+}
+
+/* Keyframes editoriales de Lively Workbook */
+@keyframes rise {
+  0% {
+    transform: translateY(108%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-rise {
+  animation: 0.95s cubic-bezier(0.2, 0.8, 0.2, 1) both rise;
+}
+
+.animate-fade-up {
+  animation: 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) both fade-up;
+}
+
+.animate-marquee {
+  animation: 30s linear infinite marquee;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Superficies editoriales limpias y sinérgicas */
+.editorial-card {
+  background-color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.editorial-card:hover {
+  border-color: oklch(76% 0.025 35);
+  box-shadow: 0 22px 44px -22px rgba(20, 18, 16, 0.1);
+}
+
+.editorial-pill {
+  border: 1px solid var(--border);
+  background-color: var(--background);
+  border-radius: 9999px;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.editorial-pill:hover {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}
+
+/* Barra superior de índice editorial para sinergia entre secciones */
+.editorial-index-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 1.25rem;
+  margin-bottom: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(82% 0.01 35);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clay);
+}
