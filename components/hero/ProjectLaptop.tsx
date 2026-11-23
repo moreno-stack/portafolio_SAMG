@@ -81,7 +81,7 @@ export default function ProjectLaptop({
                   }`}
                 />
                 <p
-                  className={`relative mt-2 text-center font-display uppercase leading-tight tracking-wide text-balance text-white ${
+                  className={`relative mt-2 w-full text-center font-display uppercase leading-tight tracking-wide text-balance text-white ${
                     isLg ? "text-[9px] sm:text-xs lg:text-sm" : "text-[7px] sm:text-[9px] lg:text-[10px]"
                   }`}
                 >
