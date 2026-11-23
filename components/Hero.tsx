@@ -121,21 +121,21 @@ export default function Hero() {
           <HoloAura />
 
           {/* Laptops exteriores (pequeñas) */}
-          {laptop("nexus-7", "left", "sm", "left-[0%] top-[30%] hidden w-[19%] md:block")}
-          {laptop("monitor-recuperacion", "right", "sm", "right-[0%] top-[30%] hidden w-[19%] md:block")}
+          {laptop("nexus-7", "left", "sm", "left-[-3%] top-[30%] hidden w-[19%] md:block")}
+          {laptop("monitor-recuperacion", "right", "sm", "right-[-3%] top-[30%] hidden w-[19%] md:block")}
 
           {/* Laptops interiores (grandes) */}
           {laptop(
             "descubre-pasto",
             "left",
             "lg",
-            "left-[13%] top-[20%] hidden w-[29%] md:block"
+            "left-[15%] top-[20%] hidden w-[27%] md:block"
           )}
           {laptop(
             "alquiler-equipos",
             "right",
             "lg",
-            "right-[13%] top-[20%] hidden w-[29%] md:block"
+            "right-[15%] top-[20%] hidden w-[27%] md:block"
           )}
 
           {/* Retrato principal */}
