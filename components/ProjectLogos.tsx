@@ -29,3 +29,24 @@ export function DescubrePastoLogo({ className = "size-16" }: LogoProps) {
     </svg>
   );
 }
+
+/** Alquiler de Equipos — cubo isométrico (inventario) con chispa de IA. */
+export function AlquilerEquiposLogo({ className = "size-16" }: LogoProps) {
+  return (
+    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id="lg-ae" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#818CF8" />
+          <stop offset="100%" stopColor="#C084FC" />
+        </linearGradient>
+      </defs>
+      <path d="M30 8 52 19v26L30 56 8 45V19Z" fill="none" stroke="url(#lg-ae)" strokeWidth="3.5" strokeLinejoin="round" />
+      <path d="M8 19l22 11 22-11M30 30v26" fill="none" stroke="url(#lg-ae)" strokeWidth="3" strokeLinejoin="round" />
+      <path d="M14 35l10 5" stroke="#E0E7FF" strokeWidth="2.4" strokeLinecap="round" />
+      <path
+        d="M52 4l2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"
+        fill="#F0ABFC"
+      />
+    </svg>
+  );
+}
