@@ -18,19 +18,15 @@ export function HoloPlatform() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-x-0 bottom-[-2%] z-[22] mx-auto h-[26%] w-[min(520px,74%)] [perspective:700px]"
+      className="pointer-events-none absolute inset-x-0 bottom-[-8%] z-[22] mx-auto aspect-square w-[min(400px,62%)] [perspective:900px]"
     >
-      {/* Haz de luz vertical */}
-      <div className="absolute inset-x-[22%] bottom-[38%] h-[160%] bg-gradient-to-t from-fuchsia-400/25 via-violet-400/10 to-transparent [clip-path:polygon(18%_100%,82%_100%,100%_0,0_0)]" />
-
-      <div className="absolute inset-0 [transform:rotateX(74deg)] [transform-style:preserve-3d]">
-        {/* Disco de luz */}
-        <div className="absolute inset-[6%] rounded-full bg-[radial-gradient(circle,rgba(232,121,249,0.55)_0%,rgba(139,92,246,0.25)_45%,transparent_70%)]" />
-        {/* Anillos */}
-        <div className="animate-holo-spin absolute inset-0 rounded-full border-2 border-dashed border-fuchsia-300/70 shadow-[0_0_30px_rgba(217,70,239,0.7)]" />
-        <div className="animate-holo-spin-rev absolute inset-[14%] rounded-full border border-violet-200/60 [border-style:dotted]" />
-        <div className="animate-holo-spin absolute inset-[28%] rounded-full border-2 border-cyan-300/50 [border-top-color:transparent] [border-bottom-color:transparent]" />
-        <div className="absolute inset-[42%] rounded-full bg-fuchsia-300/60 blur-sm" />
+      {/* Plano cuadrado inclinado: los anillos siguen siendo círculos al girar */}
+      <div className="absolute inset-0 [transform:rotateX(76deg)]">
+        <div className="absolute inset-[8%] rounded-full bg-[radial-gradient(circle,rgba(232,121,249,0.6)_0%,rgba(139,92,246,0.25)_45%,transparent_70%)]" />
+        <div className="animate-holo-spin absolute inset-0 rounded-full border-[3px] border-dashed border-fuchsia-300/70 shadow-[0_0_40px_rgba(217,70,239,0.7)]" />
+        <div className="animate-holo-spin-rev absolute inset-[13%] rounded-full border-2 border-dotted border-violet-200/60" />
+        <div className="animate-holo-spin absolute inset-[26%] rounded-full border-[3px] border-cyan-300/60 border-y-transparent" />
+        <div className="absolute inset-[40%] rounded-full bg-fuchsia-300/70 blur-md" />
       </div>
     </div>
   );
