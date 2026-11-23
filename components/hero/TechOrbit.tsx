@@ -70,8 +70,9 @@ export default function TechOrbit() {
     <div
       ref={wrapRef}
       aria-hidden="true"
-      className="pointer-events-none absolute left-1/2 top-[44%] h-[18%] w-[min(560px,78%)] -translate-x-1/2"
+      className="pointer-events-none absolute inset-x-0 top-[44%] mx-auto h-[18%] w-[min(560px,78%)]"
     >
+      {/* Sin transform en el contenedor: así cada chip puede quedar delante o detrás de la foto */}
       {/* Trazo de la órbita */}
       <div className="absolute inset-0 rounded-[50%] border border-violet-300/25 shadow-[0_0_24px_rgba(168,85,247,0.35)]" />
       {techs.map((t, i) => (
