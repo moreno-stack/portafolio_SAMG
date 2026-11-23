@@ -50,3 +50,21 @@ export function AlquilerEquiposLogo({ className = "size-16" }: LogoProps) {
     </svg>
   );
 }
+
+/** Escape Espacial: Nexus-7 — hexágono táctico con el "7" del núcleo. */
+export function Nexus7Logo({ className = "size-16" }: LogoProps) {
+  return (
+    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id="lg-nx" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#F472B6" />
+          <stop offset="100%" stopColor="#8B5CF6" />
+        </linearGradient>
+      </defs>
+      <path d="M32 4 56 18v28L32 60 8 46V18Z" fill="none" stroke="url(#lg-nx)" strokeWidth="3.5" strokeLinejoin="round" />
+      <path d="M32 12 49 22v20L32 52 15 42V22Z" fill="url(#lg-nx)" opacity="0.18" />
+      <path d="M22 22h20l-11 22" fill="none" stroke="#FCE7F3" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M26 33h10" stroke="#FCE7F3" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  );
+}
