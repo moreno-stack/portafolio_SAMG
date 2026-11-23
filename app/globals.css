@@ -179,3 +179,111 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--clay);
 }
+
+/* ===== Hero interactivo: plataforma holográfica, aura y mini demos ===== */
+@keyframes holo-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes aura-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translate(-50%, 0) scale(0.96);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, 0) scale(1.04);
+  }
+}
+
+@keyframes pin-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.4);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(1px) scale(1.12);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+@keyframes beat-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes window-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-holo-spin {
+  animation: holo-spin 14s linear infinite;
+}
+
+.animate-holo-spin-rev {
+  animation: holo-spin 22s linear infinite reverse;
+}
+
+.animate-aura-pulse {
+  animation: aura-pulse 4.5s ease-in-out infinite;
+}
+
+.animate-pin-pop {
+  animation: pin-pop 0.5s ease-out both;
+}
+
+.animate-dash-flow {
+  animation: dash-flow 1.6s linear infinite;
+}
+
+.animate-beat-scroll {
+  animation: beat-scroll 2.4s linear infinite;
+}
+
+.animate-caret {
+  animation: caret-blink 1s step-end infinite;
+}
+
+.animate-window-in {
+  animation: window-in 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-holo-spin,
+  .animate-holo-spin-rev,
+  .animate-aura-pulse,
+  .animate-dash-flow,
+  .animate-beat-scroll {
+    animation: none;
+  }
+}
