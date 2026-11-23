@@ -72,7 +72,8 @@ export default function Hero() {
     id: HeroProjectId,
     tilt: "left" | "right",
     size: "lg" | "sm",
-    className: string
+    className: string,
+    layout: "stage" | "grid" = "stage"
   ) => (
     <ProjectLaptop
       project={heroProjects[id]}
@@ -81,6 +82,7 @@ export default function Hero() {
       tilt={tilt}
       size={size}
       className={className}
+      layout={layout}
       onOpen={() => setOpenId(id)}
     />
   );
@@ -127,13 +129,13 @@ export default function Hero() {
             "descubre-pasto",
             "left",
             "lg",
-            "left-[-4%] top-[22%] w-[46%] sm:left-[2%] md:left-[13%] md:top-[20%] md:w-[29%]"
+            "left-[13%] top-[20%] hidden w-[29%] md:block"
           )}
           {laptop(
             "alquiler-equipos",
             "right",
             "lg",
-            "right-[-4%] top-[22%] w-[46%] sm:right-[2%] md:right-[13%] md:top-[20%] md:w-[29%]"
+            "right-[13%] top-[20%] hidden w-[29%] md:block"
           )}
 
           {/* Retrato principal */}
@@ -149,6 +151,14 @@ export default function Hero() {
           <TechOrbit />
           <HoloPlatform />
 
+        </div>
+
+        {/* Celular: las 4 laptops en cuadrícula, tocar abre la ventana del proyecto */}
+        <div className="relative z-30 mt-6 grid grid-cols-2 gap-x-5 gap-y-7 px-3 md:hidden">
+          {laptop("descubre-pasto", "left", "lg", "", "grid")}
+          {laptop("alquiler-equipos", "right", "lg", "", "grid")}
+          {laptop("nexus-7", "left", "lg", "", "grid")}
+          {laptop("monitor-recuperacion", "right", "lg", "", "grid")}
         </div>
 
         {/* Texto y enlaces debajo del escenario */}
