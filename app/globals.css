@@ -332,10 +332,6 @@ body {
   animation: shadow-breathe 4s ease-in-out infinite;
 }
 
-.group:hover .animate-logo-spin-3d {
-  animation-duration: 3.5s;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .animate-logo-spin-3d,
   .animate-logo-float,
