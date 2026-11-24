@@ -76,7 +76,7 @@ export const heroProjects: Record<HeroProjectId, HeroProject> = {
       "Solo bienestar deportivo, sin diagnósticos médicos",
     ],
     technologies: ["Wear OS", "Android Studio", "IA", "TDD"],
-    githubUrl: "https://github.com/moreno-stack",
+    githubUrl: "https://github.com/moreno-stack/Monitor-Recuperacion",
     accent: "#34D399",
   },
 };
