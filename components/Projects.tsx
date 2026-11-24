@@ -10,6 +10,7 @@ import {
   AlquilerEquiposLogo,
   ControlEmergenciaLogo,
   DescubrePastoLogo,
+  MonitorRecuperacionLogo,
   Nexus7Logo,
   PortafolioLogo,
   SmartLibraryLogo,
@@ -24,6 +25,7 @@ const projectVisuals: Record<
   "portafolio-diseno-interfaces": { Logo: PortafolioLogo, accent: "#A78BFA" },
   "alquiler-equipos-python": { Logo: AlquilerEquiposLogo, accent: "#818CF8" },
   "escape-espacial-nexus-7": { Logo: Nexus7Logo, accent: "#F472B6" },
+  "monitor-recuperacion-smartwatch": { Logo: MonitorRecuperacionLogo, accent: "#34D399" },
   "control-emergencia-api": { Logo: ControlEmergenciaLogo, accent: "#FB7185" },
   "smart-library-web-gov": { Logo: SmartLibraryLogo, accent: "#FBBF24" },
 };
@@ -44,7 +46,7 @@ function GithubIcon({ className = "size-4" }: { className?: string }) {
 type CategoryFilter = "Todos" | Project["category"];
 
 const categories: { id: CategoryFilter; label: string }[] = [
-  { id: "Todos", label: "Todos [06]" },
+  { id: "Todos", label: `Todos [${String(projects.length).padStart(2, "0")}]` },
   { id: "Desarrollo Web", label: "Desarrollo Web" },
   { id: "Interfaces & 3D", label: "Interfaces & 3D" },
   { id: "Académico UCC", label: "Académicos UCC" },
