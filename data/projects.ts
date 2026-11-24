@@ -78,6 +78,20 @@ export const projects: Project[] = [
     liveUrl: "https://github.com/moreno-stack/Nexuz-7",
   },
   {
+    id: "monitor-recuperacion-smartwatch",
+    title: "Monitor de Recuperación Inteligente — App para Smartwatch",
+    category: "Interfaces & 3D",
+    description:
+      "Aplicación para smartwatch de bienestar deportivo que calcula una puntuación de recuperación de 0 a 100 con IA, a partir de una línea base de 28 días. Pensada para funcionar directamente en el Samsung Galaxy Watch4, sin app compañera.",
+    problemSolved:
+      "Proyecto por fases con pruebas (TDD), interfaz diseñada para pantallas redondas pequeñas y enfoque exclusivo en bienestar deportivo, sin diagnósticos médicos.",
+    impactMetric: "App Wear OS • Galaxy Watch4",
+    image: "/images/portfolio-3d.svg",
+    technologies: ["Wear OS", "Android Studio", "IA", "TDD"],
+    githubUrl: "https://github.com/moreno-stack",
+    liveUrl: "https://github.com/moreno-stack",
+  },
+  {
     id: "control-emergencia-api",
     title: "Control de Emergencias — API y Vista Móvil",
     category: "Desarrollo Web",
