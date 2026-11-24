@@ -1,11 +1,32 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { type Project, projects } from "@/data/projects";
 import { fadeIn, staggerContainer } from "@/lib/variants";
+import Logo3D from "@/components/ui/Logo3D";
+import {
+  AlquilerEquiposLogo,
+  ControlEmergenciaLogo,
+  DescubrePastoLogo,
+  Nexus7Logo,
+  PortafolioLogo,
+  SmartLibraryLogo,
+} from "@/components/ProjectLogos";
+
+/** Logo 3D y color de acento de cada proyecto. */
+const projectVisuals: Record<
+  string,
+  { Logo: React.ComponentType<{ className?: string }>; accent: string }
+> = {
+  "descubre-pasto-ia": { Logo: DescubrePastoLogo, accent: "#22D3EE" },
+  "portafolio-diseno-interfaces": { Logo: PortafolioLogo, accent: "#A78BFA" },
+  "alquiler-equipos-python": { Logo: AlquilerEquiposLogo, accent: "#818CF8" },
+  "escape-espacial-nexus-7": { Logo: Nexus7Logo, accent: "#F472B6" },
+  "control-emergencia-api": { Logo: ControlEmergenciaLogo, accent: "#FB7185" },
+  "smart-library-web-gov": { Logo: SmartLibraryLogo, accent: "#FBBF24" },
+};
 
 function GithubIcon({ className = "size-4" }: { className?: string }) {
   return (
@@ -101,15 +122,20 @@ export default function Projects() {
               className="editorial-card group flex flex-col justify-between p-4 transition duration-300 hover:-translate-y-1 hover:!border-[var(--clay)] hover:!bg-[#FCFBF9] sm:p-5"
             >
               <div>
-                {/* Contenedor visual 4/3 con vista previa SVG editorial */}
-                <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--background)]">
-                  <Image
-                    src={project.image}
-                    alt={`Vista previa del proyecto ${project.title}`}
-                    fill
-                    unoptimized
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                {/* Escenario 4/3 con el logo 3D animado del proyecto */}
+                <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl border border-[var(--border)] bg-[radial-gradient(ellipse_at_50%_40%,#4c1d95_0%,#1e0b3d_55%,#0d0420_100%)]">
+                  <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:28px_28px]" />
+                  <div
+                    className="pointer-events-none absolute left-1/2 top-1/2 size-40 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-3xl transition-opacity duration-500 group-hover:opacity-70"
+                    style={{ backgroundColor: projectVisuals[project.id]?.accent ?? "#A855F7" }}
                   />
+                  {projectVisuals[project.id] && (
+                    <Logo3D
+                      Logo={projectVisuals[project.id].Logo}
+                      accent={projectVisuals[project.id].accent}
+                      className="relative -mt-6 size-24 transition-transform duration-500 group-hover:scale-110 sm:size-28"
+                    />
+                  )}
 
                   {/* Etiqueta flotante de categoría e índice */}
                   <div className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-2">
