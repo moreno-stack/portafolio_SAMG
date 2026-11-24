@@ -200,7 +200,7 @@ export default function About() {
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--border)] pb-4">
                 <div className="flex items-center gap-3">
                   <Image
-                    src="/yo.png"
+                    src="/samuel-avatar.jpg"
                     alt="Retrato de Samuel Alejandro Moreno Gómez"
                     width={64}
                     height={64}
