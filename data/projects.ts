@@ -88,8 +88,8 @@ export const projects: Project[] = [
     impactMetric: "App Wear OS • Galaxy Watch4",
     image: "/images/portfolio-3d.svg",
     technologies: ["Wear OS", "Android Studio", "IA", "TDD"],
-    githubUrl: "https://github.com/moreno-stack",
-    liveUrl: "https://github.com/moreno-stack",
+    githubUrl: "https://github.com/moreno-stack/Monitor-Recuperacion",
+    liveUrl: "https://github.com/moreno-stack/Monitor-Recuperacion",
   },
   {
     id: "control-emergencia-api",
