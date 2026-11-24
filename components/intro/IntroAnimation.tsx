@@ -29,12 +29,14 @@ export default function IntroAnimation() {
     let seen = false;
     try {
       seen = sessionStorage.getItem(STORAGE_KEY) === "1";
-      sessionStorage.setItem(STORAGE_KEY, "1");
     } catch {
       /* sessionStorage no disponible: se muestra la intro igual */
     }
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (seen || reduced) setPhase("done");
+    if (!seen && !reduced) return;
+    // Se oculta en el siguiente cuadro (sin renderizados en cascada dentro del efecto)
+    const raf = requestAnimationFrame(() => setPhase("done"));
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   // Línea de tiempo
@@ -44,6 +46,12 @@ export default function IntroAnimation() {
       return () => window.clearTimeout(t);
     }
     if (phase === "exit") {
+      // Se marca como vista al terminar (no al montar: en desarrollo los efectos corren dos veces)
+      try {
+        sessionStorage.setItem(STORAGE_KEY, "1");
+      } catch {
+        /* sin sessionStorage */
+      }
       const t = window.setTimeout(() => setPhase("done"), EXIT_DURATION);
       return () => window.clearTimeout(t);
     }
@@ -80,7 +88,8 @@ export default function IntroAnimation() {
       <div
         className={`absolute inset-0 origin-[50%_44%] ${exiting ? "intro-enter-screen" : "intro-camera"}`}
       >
-        <div className="intro-fade-in h-full w-full">
+        {/* Bordes desvanecidos: de lejos la escena se funde con el fondo, sin verse como un cuadro */}
+        <div className="intro-fade-in h-full w-full [mask-image:radial-gradient(ellipse_at_50%_48%,black_52%,transparent_78%)]">
           <IntroScene />
         </div>
       </div>
