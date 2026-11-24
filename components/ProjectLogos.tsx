@@ -132,3 +132,28 @@ export function PortafolioLogo({ className = "size-16" }: LogoProps) {
     </svg>
   );
 }
+
+/** Control de Emergencias — escudo con cruz y pulso de alerta. */
+export function ControlEmergenciaLogo({ className = "size-16" }: LogoProps) {
+  // ID único por instancia: el logo aparece varias veces en la página
+  const gid = useId();
+  return (
+    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FB7185" />
+          <stop offset="100%" stopColor="#F97316" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M32 4 54 12v18c0 14-9.5 24-22 30C19.5 54 10 44 10 30V12Z"
+        fill="none"
+        stroke={`url(#${gid})`}
+        strokeWidth="3.5"
+        strokeLinejoin="round"
+      />
+      <path d="M32 18v20M22 28h20" stroke="#FFF1F2" strokeWidth="5" strokeLinecap="round" />
+      <path d="M14 46h9l3-5 4 9 3-4h17" fill="none" stroke={`url(#${gid})`} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
