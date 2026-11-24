@@ -32,9 +32,19 @@ export default function Logo3D({ Logo, accent, className = "size-28" }: Logo3DPr
               <Logo className="h-full w-full" />
             </div>
           ))}
+          {/* Cara trasera: girada 180° para que el logo se lea bien al darse la vuelta */}
+          <div
+            className="absolute inset-0 [backface-visibility:hidden]"
+            style={{
+              transform: `translateZ(${-DEPTH * 1.1 - 1}px) rotateY(180deg)`,
+              filter: `drop-shadow(0 0 14px ${accent})`,
+            }}
+          >
+            <Logo className="h-full w-full" />
+          </div>
           {/* Cara frontal con brillo */}
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 [backface-visibility:hidden]"
             style={{
               transform: "translateZ(1px)",
               filter: `drop-shadow(0 0 14px ${accent})`,
