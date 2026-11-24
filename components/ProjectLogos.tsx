@@ -157,3 +157,28 @@ export function ControlEmergenciaLogo({ className = "size-16" }: LogoProps) {
     </svg>
   );
 }
+
+/** Smart Library & Gov.co — libro abierto con corchetes de código. */
+export function SmartLibraryLogo({ className = "size-16" }: LogoProps) {
+  // ID único por instancia: el logo aparece varias veces en la página
+  const gid = useId();
+  return (
+    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FBBF24" />
+          <stop offset="100%" stopColor="#A855F7" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M32 16C26 11 17 10 8 12v36c9-2 18-1 24 4 6-5 15-6 24-4V12c-9-2-18-1-24 4Z"
+        fill="none"
+        stroke={`url(#${gid})`}
+        strokeWidth="3.5"
+        strokeLinejoin="round"
+      />
+      <path d="M32 16v36" stroke={`url(#${gid})`} strokeWidth="2.5" />
+      <path d="M21 26l-5 5 5 5M43 26l5 5-5 5" fill="none" stroke="#FEF3C7" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
