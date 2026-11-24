@@ -7,10 +7,12 @@ import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import Skills from "@/components/Skills";
 import Footer from "@/components/Footer";
+import IntroAnimation from "@/components/intro/IntroAnimation";
 
 export default function Home() {
   return (
     <>
+      <IntroAnimation />
       <Navbar />
       <main>
         <Hero />
