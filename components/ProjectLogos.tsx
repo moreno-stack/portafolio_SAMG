@@ -107,3 +107,28 @@ export function MonitorRecuperacionLogo({ className = "size-16" }: LogoProps) {
     </svg>
   );
 }
+
+/** Portafolio personal — monograma "S" dentro de un cubo isométrico (Three.js). */
+export function PortafolioLogo({ className = "size-16" }: LogoProps) {
+  // ID único por instancia: el logo aparece varias veces en la página
+  const gid = useId();
+  return (
+    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#C084FC" />
+          <stop offset="100%" stopColor="#6366F1" />
+        </linearGradient>
+      </defs>
+      <path d="M32 4 56 17v30L32 60 8 47V17Z" fill="none" stroke={`url(#${gid})`} strokeWidth="3.5" strokeLinejoin="round" />
+      <path d="M32 4v14M8 17l12 7M56 17l-12 7" stroke={`url(#${gid})`} strokeWidth="2" opacity="0.55" />
+      <path
+        d="M40 25c-2-3-5-4-8-4-4.5 0-8 2.4-8 6s3 5 8 6 8 2.4 8 6-3.5 6-8 6c-3.3 0-6.3-1.3-8.2-4"
+        fill="none"
+        stroke="#F5F3FF"
+        strokeWidth="4.2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
