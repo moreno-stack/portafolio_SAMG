@@ -155,7 +155,7 @@ export default function Experience() {
         </motion.div>
 
         {/* Línea de tiempo vertical con efecto hover editorial 100% legible */}
-        <ol className="relative border-l-2 border-cyan-500/40 ml-4 mt-10 space-y-4 sm:mt-12">
+        <ol className="relative border-l-2 border-violet-500/40 ml-4 mt-10 space-y-4 sm:mt-12">
           {filteredItems.map((it, index) => {
             const isAcademica = it.type === "academica";
             return (
@@ -168,7 +168,7 @@ export default function Experience() {
               >
                 <span className="absolute -left-[9px] mt-7 size-4 rounded-full border-2 border-[var(--background)] bg-[var(--primary)]" />
 
-                <div className="editorial-card group p-5 transition duration-300 hover:-translate-y-1 hover:!border-[var(--clay)] hover:!bg-[#FCFBF9] sm:px-8 sm:py-6">
+                <div className="editorial-card group p-5 transition duration-300 hover:-translate-y-1 hover:!border-[var(--clay)] hover:!bg-[var(--surface-hover)] sm:px-8 sm:py-6">
                   <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
                     <div className="flex flex-wrap items-center gap-2.5">
                       <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1 text-xs font-semibold text-[var(--foreground)] transition-colors group-hover:border-[var(--clay)]/40">
