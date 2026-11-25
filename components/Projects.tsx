@@ -121,7 +121,7 @@ export default function Projects() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.06 }}
-              className="editorial-card group flex flex-col justify-between p-4 transition duration-300 hover:-translate-y-1 hover:!border-[var(--clay)] hover:!bg-[#FCFBF9] sm:p-5"
+              className="editorial-card group flex flex-col justify-between p-4 transition duration-300 hover:-translate-y-1 hover:!border-[var(--clay)] hover:!bg-[var(--surface-hover)] sm:p-5"
             >
               <div>
                 {/* Escenario 4/3 con el logo 3D animado del proyecto */}
