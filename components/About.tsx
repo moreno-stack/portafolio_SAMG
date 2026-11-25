@@ -331,7 +331,7 @@ export default function About() {
 
               <a
                 href="#proyectos"
-                className="group flex items-center justify-between rounded-2xl border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-xs font-bold transition hover:border-[var(--clay)] hover:bg-[#FCFBF9]"
+                className="group flex items-center justify-between rounded-2xl border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-xs font-bold transition hover:border-[var(--clay)] hover:bg-[var(--surface-hover)]"
               >
                 <span>Ver mis proyectos universitarios y de código</span>
                 <ArrowUpRight className="size-4 text-[var(--clay)] transition group-hover:rotate-45" />
@@ -348,7 +348,7 @@ export default function About() {
           {impactMetrics.map((metric) => (
             <div
               key={metric.label}
-              className="editorial-card group p-5 text-left transition duration-300 hover:-translate-y-1 hover:!border-[var(--clay)] hover:!bg-[#FCFBF9] sm:p-6"
+              className="editorial-card group p-5 text-left transition duration-300 hover:-translate-y-1 hover:!border-[var(--clay)] hover:!bg-[var(--surface-hover)] sm:p-6"
             >
               <p className="font-display text-3xl text-[var(--foreground)] transition-colors group-hover:text-[var(--clay)] sm:text-4xl md:text-5xl">
                 <AnimatedCounter
