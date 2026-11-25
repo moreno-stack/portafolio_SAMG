@@ -102,7 +102,7 @@ export default function Testimonials() {
             <motion.blockquote
               key={item.id}
               variants={fadeIn("up", 0.1 + idx * 0.08)}
-              className="editorial-card group relative flex flex-col justify-between overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1.5 hover:!border-[var(--clay)] hover:!bg-[#FCFBF9] hover:shadow-[0_24px_48px_-20px_rgba(142,91,71,0.18)] sm:p-8"
+              className="editorial-card group relative flex flex-col justify-between overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1.5 hover:!border-[var(--clay)] hover:!bg-[var(--surface-hover)] hover:shadow-[0_24px_48px_-20px_rgba(168,85,247,0.35)] sm:p-8"
             >
               {/* Barra superior de acento terracota al pasar el mouse */}
               <span
@@ -134,7 +134,7 @@ export default function Testimonials() {
                   {item.competenciesValidated.map((comp) => (
                     <span
                       key={comp}
-                      className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1 text-[11px] font-semibold text-[var(--foreground)] transition-colors group-hover:border-[var(--clay)]/40 group-hover:bg-[#F5EFEA]"
+                      className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1 text-[11px] font-semibold text-[var(--foreground)] transition-colors group-hover:border-[var(--clay)]/40 group-hover:bg-[var(--surface-hover)]"
                     >
                       {comp}
                     </span>
