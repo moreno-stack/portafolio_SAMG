@@ -2,15 +2,17 @@
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(99.3% 0 0);
-  --foreground: oklch(16% 0.004 20);
-  --primary: oklch(16% 0.004 20);
+  /* Paleta morada tomada del retrato del inicio (samuel-hero.png) */
+  --background: oklch(14.5% 0.06 298);
+  --foreground: oklch(96% 0.018 300);
+  --primary: oklch(58% 0.24 298);
   --primary-foreground: oklch(99% 0 0);
-  --muted: oklch(96.5% 0.003 40);
-  --muted-foreground: oklch(50% 0.005 40);
-  --border: oklch(90% 0.006 40);
+  --muted: oklch(19.5% 0.075 298);
+  --muted-foreground: oklch(79% 0.06 300);
+  --border: oklch(31% 0.09 298);
+  --surface-hover: oklch(23.5% 0.095 300);
   --live: oklch(72% 0.19 145);
-  --clay: oklch(55% 0.08 35);
+  --clay: oklch(74% 0.17 318);
 }
 
 @theme inline {
@@ -37,7 +39,7 @@ html {
 body {
   background-color: var(--background);
   background-image: radial-gradient(
-    oklch(16% 0.004 20 / 0.045) 1px,
+    oklch(80% 0.1 300 / 0.07) 1px,
     transparent 1px
   );
   background-size: 28px 28px;
@@ -134,8 +136,8 @@ body {
 }
 
 .editorial-card:hover {
-  border-color: oklch(76% 0.025 35);
-  box-shadow: 0 22px 44px -22px rgba(20, 18, 16, 0.1);
+  border-color: oklch(55% 0.18 300);
+  box-shadow: 0 22px 44px -22px rgba(168, 85, 247, 0.35);
 }
 
 .editorial-pill {
@@ -172,7 +174,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: oklch(82% 0.01 35);
+  background: oklch(40% 0.14 298);
   border-radius: 9999px;
 }
 
