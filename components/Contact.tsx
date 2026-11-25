@@ -378,7 +378,7 @@ export default function Contact() {
                       }`}
                     />
                     {errors.name && (
-                      <p className="mt-1.5 flex items-center gap-1 text-xs font-medium text-rose-600">
+                      <p className="mt-1.5 flex items-center gap-1 text-xs font-medium text-rose-300">
                         <AlertCircle className="size-3.5 shrink-0" />
                         <span>{errors.name}</span>
                       </p>
@@ -406,7 +406,7 @@ export default function Contact() {
                       }`}
                     />
                     {errors.email && (
-                      <p className="mt-1.5 flex items-center gap-1 text-xs font-medium text-rose-600">
+                      <p className="mt-1.5 flex items-center gap-1 text-xs font-medium text-rose-300">
                         <AlertCircle className="size-3.5 shrink-0" />
                         <span>{errors.email}</span>
                       </p>
@@ -457,7 +457,7 @@ export default function Contact() {
                     }`}
                   />
                   {errors.message && (
-                    <p className="mt-1.5 flex items-center gap-1 text-xs font-medium text-rose-600">
+                    <p className="mt-1.5 flex items-center gap-1 text-xs font-medium text-rose-300">
                       <AlertCircle className="size-3.5 shrink-0" />
                       <span>{errors.message}</span>
                     </p>
@@ -465,7 +465,7 @@ export default function Contact() {
                 </div>
 
                 {serverError && (
-                  <p className="flex items-center gap-1.5 rounded-2xl border border-rose-500/40 bg-rose-500/10 px-4 py-2.5 text-xs font-medium text-rose-700">
+                  <p className="flex items-center gap-1.5 rounded-2xl border border-rose-500/40 bg-rose-500/10 px-4 py-2.5 text-xs font-medium text-rose-200">
                     <AlertCircle className="size-4 shrink-0" />
                     <span>{serverError}</span>
                   </p>
