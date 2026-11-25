@@ -10,7 +10,7 @@ const QuantumScene = dynamic(() => import("@/components/canvas/QuantumScene"), {
   ssr: false,
   loading: () => (
     <div className="flex h-full w-full items-center justify-center">
-      <div className="h-20 w-20 animate-pulse rounded-full border border-stone-300 bg-stone-100" />
+      <div className="h-20 w-20 animate-pulse rounded-full border border-violet-800 bg-violet-950" />
     </div>
   ),
 });
@@ -34,7 +34,7 @@ const skillCategories: SkillCategory[] = [
   {
     id: "frontend-ui",
     title: "Desarrollo Web & UI",
-    accent: "#8E5B47",
+    accent: "#C084FC",
     icon: Blocks,
     skills: [
       {
@@ -70,7 +70,7 @@ const skillCategories: SkillCategory[] = [
   {
     id: "programacion-bd",
     title: "Programación & Bases de Datos",
-    accent: "#18181B",
+    accent: "#E879F9",
     icon: Code2,
     skills: [
       {
@@ -106,7 +106,7 @@ const skillCategories: SkillCategory[] = [
   {
     id: "herramientas-git",
     title: "Herramientas de Desarrollo",
-    accent: "#8E5B47",
+    accent: "#C084FC",
     icon: Wrench,
     skills: [
       {
@@ -249,7 +249,7 @@ export default function Skills() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: idx * 0.06 }}
-                className="editorial-card flex flex-col justify-between p-5 transition duration-300 hover:-translate-y-1 hover:!border-[var(--clay)] hover:!bg-[#FCFBF9] sm:p-6"
+                className="editorial-card flex flex-col justify-between p-5 transition duration-300 hover:-translate-y-1 hover:!border-[var(--clay)] hover:!bg-[var(--surface-hover)] sm:p-6"
               >
                 <div>
                   <div className="flex items-start justify-between gap-2">
